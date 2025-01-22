@@ -4,6 +4,16 @@ export const pageBuilderType = defineType({
   name: 'pageBuilder',
   title: 'Page Builder',
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'assets',
+      title: 'Images',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -16,12 +26,22 @@ export const pageBuilderType = defineType({
       options: {source: 'title'},
     //   validation: (rule) => rule.required(),
     }),
+
+
     defineField({
       name: 'publishedAt',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
+      readOnly: ({currentUser}) => {
+        const isAdmin = currentUser?.roles.some((role) => role.name === 'administrator')
+    
+        return !isAdmin
+      },
     }),
+
+
+
     defineField({
         name: 'summary',
         type: 'string',
@@ -55,8 +75,17 @@ export const pageBuilderType = defineType({
     defineField({
         name: 'isHighlighted',
         type: 'boolean'
-    })
-    
+    }),
+    defineField({
+      name: 'seoType', 
+      type: 'seo',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'imageTest',
+      type: 'image',
+      group: 'assets',
+    }),
   ],
   initialValue: {
     isHighlighted: true
