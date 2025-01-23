@@ -4,6 +4,8 @@ export const seoType = defineType({
   name: "seo",
   title: "SEO",
   type: "object",
+  readOnly: (context) =>
+    !context.currentUser?.roles.flatMap((r) => r.name).includes('seo-author'),
   fields: [
     defineField({
       name: "title",
