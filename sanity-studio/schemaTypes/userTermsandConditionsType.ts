@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity'
 
 export const user_terms_and_conditions_type = defineType({
     name: "userTermsAndConditions",
-    title: "TC - Documents",
+    title: "Terms and Conditions",
     type: "document",
     groups: [
         {name: 'details', title: 'Document Details'},

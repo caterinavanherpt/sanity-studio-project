@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
-export const sectionType = defineType({
-  name: 'section',
-  title: 'Section',
+export const blockContentType = defineType({
+  name: 'blockContentType',
+  title: 'Block Content',
   type: 'object',
   fields: [
     defineField({
