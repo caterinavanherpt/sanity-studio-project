@@ -59,7 +59,7 @@ export const pageBuilderType = defineType({
     defineField({
       name: 'pageSections',
       type: 'array',
-      of: [ defineArrayMember({ type: 'section' }),],
+      of: [ defineArrayMember({ type: 'blockContentType' }),],
     }),
     defineField({
         type: 'document',
