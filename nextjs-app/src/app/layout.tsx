@@ -2,7 +2,7 @@
 
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
-import { DisableDraftMode } from "@/components/DisableDraftMode";
+import { DisableDraftMode } from "@/app/components/DisableDraftMode";
 import "./globals.css";
 import { SanityLive } from "@/sanity/live";
 
