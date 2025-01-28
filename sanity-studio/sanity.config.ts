@@ -5,6 +5,7 @@ import {schemaTypes} from './schemaTypes'
 import {markdownSchema} from 'sanity-plugin-markdown'
 import {media} from 'sanity-plugin-media'
 import {assist} from '@sanity/assist'
+import {myStructure} from './deskStructure';
 
 export default defineConfig({
   name: 'default',
@@ -14,7 +15,9 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
-    structureTool(), 
+    structureTool({
+      structure: myStructure,
+    }), 
     visionTool(), 
     markdownSchema(),
     media({
