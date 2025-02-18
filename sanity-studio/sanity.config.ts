@@ -6,6 +6,8 @@ import {markdownSchema} from 'sanity-plugin-markdown'
 import {media} from 'sanity-plugin-media'
 import {assist} from '@sanity/assist'
 import {myStructure} from './deskStructure';
+import {dashboardTool} from '@sanity/dashboard'
+import {documentListWidget} from 'sanity-plugin-dashboard-widget-document-list'
 
 export default defineConfig({
   name: 'default',
@@ -15,6 +17,11 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    dashboardTool({
+      widgets: [documentListWidget({
+        title: 'Amount of Updated Docs',
+    })],
+    }),
     structureTool({
       structure: myStructure,
     }), 
