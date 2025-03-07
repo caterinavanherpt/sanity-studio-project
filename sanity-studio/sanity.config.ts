@@ -16,12 +16,14 @@ export default defineConfig({
   projectId: '2pterscv',
   dataset: 'production',
 
+  releases: {
+    enabled: true,
+  },
+  scheduledPublishing: {
+    enabled: false, 
+  },
+
   plugins: [
-    dashboardTool({
-      widgets: [documentListWidget({
-        title: 'Amount of Updated Docs',
-    })],
-    }),
     structureTool({
       structure: myStructure,
     }), 
@@ -33,6 +35,11 @@ export default defineConfig({
       }
     }),
     assist(),
+    dashboardTool({
+      widgets: [documentListWidget({
+        title: 'Amount of Updated Docs',
+      })],
+    }),
   ],
 
   schema: {
