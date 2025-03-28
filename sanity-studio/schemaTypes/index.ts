@@ -5,5 +5,9 @@ import { user_terms_and_conditions_type } from "./userTermsandConditionsType"
 import { seoType } from './objects/seoType'
 import { articleType } from "./documents/article/articleType"
 import { tagType } from "./documents/article/tagType"
+import { widgetArrayType } from "./documents/widgetArray"
+import { widgetConfigType } from "./objects/widgetConfig"
+import { widgetGroupType } from "./documents/widgetGroup"
 
 export const schemaTypes = [pageType, pageBuilderType, blockContentType, user_terms_and_conditions_type, seoType, articleType, tagType]
+export const schemaTypesTwo = [widgetArrayType, widgetGroupType, widgetConfigType]
