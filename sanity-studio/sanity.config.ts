@@ -5,9 +5,10 @@ import {schemaTypes, schemaTypesTwo} from './schemaTypes'
 import {markdownSchema} from 'sanity-plugin-markdown'
 import {media} from 'sanity-plugin-media'
 import {assist} from '@sanity/assist'
-import {myStructure} from './deskStructure';
+import {myStructure, singletonStructure} from './deskStructure';
 import {dashboardTool} from '@sanity/dashboard'
 import {documentListWidget} from 'sanity-plugin-dashboard-widget-document-list'
+import {documentInternationalization} from '@sanity/document-internationalization'
 
 export default defineConfig([
     {
@@ -39,10 +40,20 @@ export default defineConfig([
           title: 'Amount of Updated Docs',
         })],
       }),
+      documentInternationalization({
+        // Required configuration
+        supportedLanguages: [
+          {id: 'es', title: 'Spanish'},
+          {id: 'en', title: 'English'}
+        ],
+        schemaTypes: ['homeType', 'articleType'],
+      })
     ],
 
     schema: {
       types: schemaTypes,
+      // templates: (prev) => 
+      //   prev.filter((template) => !template.id.includes('-es') && !['articleType'].includes(template.id)),
     },
   },
   {
@@ -83,3 +94,5 @@ export default defineConfig([
     },
   }
 ])
+
+
